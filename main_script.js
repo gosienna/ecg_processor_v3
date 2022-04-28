@@ -295,15 +295,11 @@ function redraw_ecg(ecg_data){
         obj.camera.top = obj.ymax
         obj.camera.bottom = obj.ymin
         obj.camera.updateProjectionMatrix()
-        //console.log(obj.camera)
-        //add vertical marker
-        obj.add_vertical_marker()
-        //add grid
-        obj.add_grid()
-        obj.data = ecg
         obj.draw_data(ecg)
-        //render the scence
-        obj.renderer.render( obj.scene, obj.camera);
+        obj.add_vertical_marker() // activate moving vertical marker
+        let wave_type=document.getElementById('wave_type').value
+        obj.add_triangle_marker(10000,wave_type)
+        obj.add_grid() //show grid
     })
 
 }
