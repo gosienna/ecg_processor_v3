@@ -64,7 +64,7 @@ class Plot2D{
         let start_x=0
         data.forEach(
             function(y){
-                points.push( new THREE.Vector3(start_x,y,0))
+                points.push( new THREE.Vector3(start_x,y,1))
                 start_x+=1
             }
         )
@@ -79,8 +79,8 @@ class Plot2D{
     add_vertical_marker(){
         const material_marker = new THREE.LineBasicMaterial( { color: 0xff2949 } );
         let marker_vertice=[]
-        marker_vertice.push(new THREE.Vector3(0,this.ymax,0))
-        marker_vertice.push(new THREE.Vector3(0,this.ymin,0))
+        marker_vertice.push(new THREE.Vector3(0,this.ymax,1))
+        marker_vertice.push(new THREE.Vector3(0,this.ymin,1))
         const geometry_marker = new THREE.BufferGeometry().setFromPoints( marker_vertice );
         const vertical_marker = new THREE.Line( geometry_marker, material_marker );
         this.scene.add( vertical_marker )
